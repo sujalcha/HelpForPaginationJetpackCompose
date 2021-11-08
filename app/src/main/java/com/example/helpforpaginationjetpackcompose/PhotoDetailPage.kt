@@ -37,10 +37,6 @@ fun PhotoDetailPage(photoDetailPageViewModel: PhotoDetailPageViewModel = hiltVie
             .background(color = Color.LightGray)
     ) {
 
-        val itemcount = photolist.size
-
-        Log.d("itemcount",itemcount.toString()+"")
-
         LazyColumn(contentPadding = PaddingValues(16.dp)) {
             itemsIndexed(
                 items = photolist

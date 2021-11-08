@@ -25,7 +25,7 @@ class PhotoDetailPageViewModel @Inject constructor(private val photoRepository: 
 
     fun getphotos() {
         viewModelScope.launch {
-            var result = photoRepository.getphotos(1)
+            var result = photoRepository.getphotos(page.value)
 
             when (result) {
                 is Resource.Success -> {
