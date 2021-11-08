@@ -31,7 +31,6 @@ fun PhotoDetailPage(photoDetailPageViewModel: PhotoDetailPageViewModel = hiltVie
 
     val photolist by remember { photoDetailPageViewModel.photodetaillist }
 
-
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -92,39 +91,6 @@ fun PhotoDetail(mainPhoto: MainPhoto) {
                         .width(100.dp)
                 )
             }
-//
-//            //coil usage
-//            Box(modifier = Modifier
-//                .height(100.dp)
-//                .width(100.dp)) {
-//                val painter = rememberImagePainter(data = mainPhoto.thumbnailUrl)
-//                Image(
-//                    painter = painter,
-//                    contentDescription = null,
-//                    modifier = Modifier
-//                        .height(100.dp)
-//                        .width(100.dp)
-//                )
-//            }
-//
-//            //coil usage
-//            Box(modifier = Modifier
-//                .height(100.dp)
-//                .width(100.dp)) {
-//                val painter = rememberImagePainter(data = mainPhoto.thumbnailUrl)
-//                Image(
-//                    painter = painter,
-//                    contentDescription = null,
-//                    modifier = Modifier
-//                        .height(100.dp)
-//                        .width(100.dp)
-//                )
-//            }
-
-
-
         }
-
     }
-
 }
