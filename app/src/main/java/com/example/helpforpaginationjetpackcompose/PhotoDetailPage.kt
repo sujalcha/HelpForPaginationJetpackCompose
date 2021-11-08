@@ -46,6 +46,8 @@ fun PhotoDetailPage(photoDetailPageViewModel: PhotoDetailPageViewModel = hiltVie
                 items = photolist
             ) { index, photo ->
                 photoDetailPageViewModel.onChangephotoScrollPosition(index)
+                var cardnumber = photoDetailPageViewModel.photoListScrollPosition
+                Log.d("Index",cardnumber.toString())
                 if((index + 1) >= (photoDetailPageViewModel.page.value * PAGE_SIZE) ){
                     photoDetailPageViewModel.getnextpage()
                 }

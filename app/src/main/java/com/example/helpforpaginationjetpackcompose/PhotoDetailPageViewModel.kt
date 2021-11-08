@@ -17,10 +17,6 @@ class PhotoDetailPageViewModel @Inject constructor(private val photoRepository: 
     val page = mutableStateOf(1)
     var photoListScrollPosition = 0
 
-    private var currpage = 0
-    var endReached = mutableStateOf(false)
-
-
     init {
         getphotos()
     }
@@ -43,7 +39,6 @@ class PhotoDetailPageViewModel @Inject constructor(private val photoRepository: 
                             entry.url
                         )
                     }
-                    currpage++
                     photodetaillist.value += photoentry
                     Log.d("photoentry", photoentry.toString() + "")
                 }
@@ -60,7 +55,7 @@ class PhotoDetailPageViewModel @Inject constructor(private val photoRepository: 
     fun getnextpage() {
         viewModelScope.launch {
             // prevent duplicate event due to recompose happening to quickly
-            if ((photoListScrollPosition + 1) >= (page.value * PAGE_SIZE)) {
+            if ((photoListScrollPosition + 10) >= (page.value * PAGE_SIZE)) {
                 incrementPage()
                 Log.d("Tag", "nextPage: triggered: ${page.value}")
 
@@ -83,25 +78,13 @@ class PhotoDetailPageViewModel @Inject constructor(private val photoRepository: 
                                 )
                             }
                             photodetaillist.value += photoentry
-                            Log.d("photoentry", photoentry.toString() + "")
                         }
                         is Resource.Error -> {
                         }
                     }
-
-
-                    Log.d("TAG", "search: appending")
-                  //  appendRecipes(result)
                 }
-//                loading.value = false
             }
         }
-    }
-
-    private fun appendRecipes(photolist: List<MainPhoto>) {
-//        val current = photolist
-//        current.addAll(photolist)
-//        this.photolist.value = current
     }
 
     fun onChangephotoScrollPosition(position: Int){
